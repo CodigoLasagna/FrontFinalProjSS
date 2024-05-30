@@ -1,53 +1,92 @@
 /* rsapage.css */
-
-.navbar {
-  background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000; /* Asegura que el navbar esté por encima del contenido */
+.genRsaBtn{
+	top: 10px;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar li {
-  float: left;
-}
-
-.navbar li a {
-  display: block;
+.Titles {
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
 }
 
-.navbar li a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
+/* Contenedor principal */
 .content {
   padding: 20px;
-  width: 100%;
-  background-color: #f0f0f0; /* Cambia el color de fondo según sea necesario */
   margin-top: 48px; /* Altura del navbar */
 }
 
-.login-section, .register-section {
-  margin: 20px;
-  padding: 20px;
-  background-color: #3b3b3b;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Papel contenedor */
+.paper {
+  padding: 10px;
+  background-color: #2f2f2f !important; /* Fondo del Paper */
+  height: 90%;
+  max-width: 90%; /* Ancho máximo del Paper */
+  margin: 0 auto; /* Centrar el Paper horizontalmente */
+  border-radius: 10px;
 }
 
-.login-section h2, .register-section h2 {
-  margin-bottom: 10px;
-  font-size: 1.5em;
+/* Tabs */
+.tabs {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+}
+
+.tab {
+  color: #b3b3b3 !important;
+  font-weight: bold;
+  padding: 10px 20px; /* Ajustar padding según sea necesario */
+  margin: auto !important; /* Espacio entre tabs */
+}
+
+.tab.Mui-selected {
+  color: #2979ff !important;
+}
+
+/* Secciones */
+.register-section, .login-section, .update-section {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensajes */
+.rsa-details {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #81c784;
+}
+
+p.error {
+  color: #f44336;
+}
+
+/* Botones */
+.MuiButton-containedPrimary {
+  background-color: #2979ff;
+  color: #fff;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #2962ff;
+}
+
+/* Campos de texto */
+.MuiInputBase-root {
+  color: #fff;
+}
+
+.MuiInputLabel-root {
+  color: #fff;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: #1f1f1f;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #fff;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #fff;
 }
