@@ -1,0 +1,61 @@
+/* simpage.css */
+
+/* Estilo para centrar el contenedor */
+/* Estilo para centrar el contenedor */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Alinear elementos en columna */
+  height: 100vh; /* Ajusta la altura del contenedor al 100% del viewport */
+  margin-top: 100px; /* Ajusta según necesidades */
+  text-align: center; /* Alinea el contenido al centro */
+}
+
+.logo-img {
+  max-width: 400px; /* Ajusta el tamaño máximo de la imagen según necesidades */
+  margin-bottom: 20px; /* Espacio entre la imagen y el formulario */
+}
+
+.login-form {
+  padding: 20px;
+  background-color: #2f2f2f !important;
+  color: white !important;
+}
+
+/* Estilos adicionales para los TextField y Button */
+.MuiOutlinedInput-notchedOutline {
+  border-color: #dc143c !important; /* Borde rojo carmesí */
+  color: white !important; /* Color de texto blanco */
+}
+
+.MuiButton-containedPrimary {
+  margin-top: 20px;
+  background-color: #dc143c !important; /* Color de fondo del botón */
+  color: white !important; /* Color de texto blanco */
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #ff1744 !important; /* Color de fondo del botón al pasar el mouse */
+  color: white !important; /* Color de texto blanco */
+}
+
+/* Estilo para el label (título) del TextField cuando está enfocado */
+.MuiFormLabel-root.Mui-focused {
+  color: white !important; /* Color de texto blanco cuando el campo está enfocado */
+}
+
+/* Estilos para las tabs en el footer */
+.footer-tabs {
+  width: 100%; /* Ocupa toda la anchura disponible */
+  margin-top: auto;
+  position: sticky; /* Mantiene el footer pegado al fondo */
+  bottom: 0; /* Se alinea al fondo de su contenedor */
+  background-color: #2f2f2f; /* Color de fondo */
+  color: white; /* Color del texto */
+}
+
+.card{
+	background: #1f1f1f;
+	color: white;
+}

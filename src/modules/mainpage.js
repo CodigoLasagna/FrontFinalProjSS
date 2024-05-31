@@ -8,6 +8,7 @@ import HomePage from './homepage';
 import RSAPage from './rsapage';
 import XSSSection from './xssSection';
 import SQLPage from './sqlpage';
+import PhishingPage from './simpage';
 
 function MainPage() {
   return (
@@ -27,6 +28,7 @@ function MainPage() {
           <Route path="/rsa" element={<RSAPage />} />
           <Route path="/xss" element={<XSSSection />} />
           <Route path="/SQL" element={<SQLPage />} />
+          <Route path="/Phishing" element={<PhishingPage />} />
         </Routes>
       </div>
     </Router>
