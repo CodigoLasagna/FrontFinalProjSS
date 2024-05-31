@@ -12,7 +12,7 @@ export function useRSA() {
   const [userId, setUserId] = useState('');
   const [error, setError] = useState('');
   const [rsaDetails, setRsaDetails] = useState('');
-  const [keyNumber, setKeyNumber] = useState('-1');
+  const [keyNumber, setKeyNumber] = useState('');
 
   const handleRegister = async () => {
     try {
@@ -62,19 +62,39 @@ export function useRSA() {
 
   const handleUpdate = async () => {
     try {
-      const requestBody = {};
-      if (updateName) requestBody.name = updateName;
-      if (updateEmail) requestBody.email = updateEmail;
-      if (updatePassword) requestBody.password = updatePassword;
+      const requestBody = {
+        name: updateName || undefined,
+        email: updateEmail || undefined,
+        password: updatePassword || undefined,
+      };
 
-      const response = await fetch(`http://localhost:5068/Update/1`, {
+      const response = await fetch(`http://localhost:5068/api/User/Update/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'userId': userId,
         },
         body: JSON.stringify(requestBody),
       });
       const data = await response.json();
+      setError('');
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const handleGenerateKeys = async () => {
+    try {
+      const response = await fetch('http://localhost:5068/api/RSA/GenerateKeys', {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const text = await response.text();
+      setRsaDetails(text);
       setError('');
     } catch (error) {
       setError(error.message);
@@ -99,10 +119,14 @@ export function useRSA() {
     updatePassword,
     setUpdatePassword,
     userId,
+    setUserId,
     error,
     rsaDetails,
+    keyNumber,
+    setKeyNumber,
     handleRegister,
     handleLogin,
     handleUpdate,
+    handleGenerateKeys,
   };
 }

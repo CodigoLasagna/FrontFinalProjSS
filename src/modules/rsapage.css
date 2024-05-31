@@ -2,6 +2,10 @@
 .genRsaBtn{
 	top: 10px;
 }
+.responseContainerText
+{
+	margin-top: 30px !important;
+}
 
 .Titles {
   color: white;

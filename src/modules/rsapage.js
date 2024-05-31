@@ -25,7 +25,6 @@ function TabPanel(props) {
 
 function RSAPage() {
   const [tabIndex, setTabIndex] = useState(0);
-  const [keyNumber, setKeyNumber] = useState('-1'); // Estado para almacenar el número de clave
 
   const {
     name, setName,
@@ -36,8 +35,9 @@ function RSAPage() {
     updateName, setUpdateName,
     updateEmail, setUpdateEmail,
     updatePassword, setUpdatePassword,
-    userId, error, rsaDetails,
-    handleRegister, handleLogin, handleUpdate
+    userId, setUserId, error, rsaDetails,
+    keyNumber, setKeyNumber,
+    handleRegister, handleLogin, handleUpdate, handleGenerateKeys
   } = useRSA();
 
   const handleTabChange = (event, newValue) => {
@@ -86,7 +86,7 @@ function RSAPage() {
             {rsaDetails && (
               <Typography variant="body1" className="rsa-details">{rsaDetails}</Typography>
             )}
-            {error && <Typography variant="body1" color="error">Error: {error}</Typography>}
+            {error && <Typography variant="body1" color="error" className="responseContainerText">Error: {error}</Typography>}
           </Box>
         </TabPanel>
 
@@ -98,19 +98,21 @@ function RSAPage() {
             <TextField fullWidth label="Contraseña" type="password" value={password} onChange={(e) => setPassword(e.target.value)} margin="normal" sx={textFieldStyle} />
             <TextField fullWidth label="Número de clave" type="text" value={keyNumber} onChange={handleKeyNumberChange} margin="normal" sx={textFieldStyle} />
             <Button variant="contained" color="primary" fullWidth onClick={handleRegister}>Registrarse</Button>
-            {userId && <Typography variant="body1">{userId}</Typography>}
-            {error && <Typography variant="body1" color="error">Error: {error}</Typography>}
+            <Button variant="contained" color="primary" fullWidth onClick={handleGenerateKeys} className="genRsaBtn">Crear rsa (Llave pública y privada)</Button>
+            {userId && <Typography variant="body1" className="responseContainerText">{userId}</Typography>}
+            {error && <Typography variant="body1" color="error" className="responseContainerText">Error: {error}</Typography>}
           </Box>
         </TabPanel>
 
         <TabPanel value={tabIndex} index={2}>
           <Box className="update-section">
             <Typography variant="h4" gutterBottom className="Titles">Actualizar información de usuario</Typography>
+            <TextField fullWidth label="User ID" value={userId} onChange={(e) => setUserId(e.target.value)} margin="normal" sx={textFieldStyle} />
             <TextField fullWidth label="Nuevo nombre" value={updateName} onChange={(e) => setUpdateName(e.target.value)} margin="normal" sx={textFieldStyle} />
             <TextField fullWidth label="Nuevo correo electrónico" type="email" value={updateEmail} onChange={(e) => setUpdateEmail(e.target.value)} margin="normal" sx={textFieldStyle} />
             <TextField fullWidth label="Nueva contraseña" type="password" value={updatePassword} onChange={(e) => setUpdatePassword(e.target.value)} margin="normal" sx={textFieldStyle} />
             <Button variant="contained" color="primary" fullWidth onClick={handleUpdate}>Actualizar</Button>
-            {error && <Typography variant="body1" color="error">Error: {error}</Typography>}
+            {error && <Typography variant="body1" color="error" className="responseContainerText">Error: {error}</Typography>}
           </Box>
         </TabPanel>
       </Paper>
