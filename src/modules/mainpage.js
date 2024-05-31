@@ -7,6 +7,7 @@ import './mainpage.css';
 import HomePage from './homepage';
 import RSAPage from './rsapage';
 import XSSSection from './xssSection';
+import SQLPage from './sqlpage';
 
 function MainPage() {
   return (
@@ -25,6 +26,7 @@ function MainPage() {
           <Route path="/" element={<HomePage />} />
           <Route path="/rsa" element={<RSAPage />} />
           <Route path="/xss" element={<XSSSection />} />
+          <Route path="/SQL" element={<SQLPage />} />
         </Routes>
       </div>
     </Router>

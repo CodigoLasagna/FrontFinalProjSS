@@ -1,0 +1,37 @@
+/* sqlpage.css */
+.content {
+  margin-top: 64px;
+}
+
+.paper {
+  padding: 20px;
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tab {
+  text-transform: none;
+}
+
+.Titles {
+  color: #ffffff;
+}
+
+.login-section, .register-section, .update-section {
+  margin-top: 20px;
+}
+
+.rsa-details {
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.responseContainerText {
+  margin-top: 20px;
+}
+
+.genRsaBtn {
+  margin-top: 20px;
+}
