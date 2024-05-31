@@ -115,7 +115,7 @@ const PhishingPage = () => {
       </Paper>
 
       {/* Tabs como footer */}
-      <Typography variant="body2" color="white" align="center" style={{ marginTop: '20px', marginBottom: '50vh'}}>
+      <Typography variant="body2" color="white" align="center" style={{ marginTop: '20px', marginBottom: '40vh'}}>
         &copy; 2024 Netflix. Todos los derechos reservados.
       </Typography>
       <Tabs value={tabValue} onChange={handleTabChange} aria-label="tabs" className="footer-tabs">
