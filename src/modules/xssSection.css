@@ -1,0 +1,38 @@
+.xss-container {
+  padding: 20px;
+  background-color: #3f3f3f;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 64px;
+}
+
+.xss-title {
+  color: #2979ff;
+  margin-bottom: 20px;
+}
+
+.textbox{
+	color: white !important;
+}
+
+.comments-container {
+  padding: 10px;
+  margin-top: 20px;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-height: 100px;
+  overflow-y: auto;
+}
+
+.xss-example {
+  margin-bottom: 20px;
+}
+
+.xss-example-text {
+  font-size: 16px;
+}
+
+button {
+  margin-top: 10px;
+}
