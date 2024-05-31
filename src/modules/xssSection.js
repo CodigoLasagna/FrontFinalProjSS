@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button, TextField } from '@mui/material';
+import './xssSection.css'; // Importa el archivo CSS para estilizar
 
 const XSSExample = () => {
   const [inputValue, setInputValue] = useState('');
@@ -22,7 +23,7 @@ const XSSExample = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setOutputValue(inputValue); // Aquí establecemos el valor del input como output
+    setOutputValue(inputValue); // Establece el valor del input como output
   };
 
   const handleBack = () => {
@@ -41,9 +42,22 @@ const XSSExample = () => {
     }
   };
 
+  // Función para validar si el returnPath es seguro
+  const isValidReturnPath = (path) => {
+    // Limita la ejecución solo a rutas relativas seguras comenzando con '/'
+    return path.startsWith('/');
+  };
+
+  // Función para redirigir de manera segura utilizando createElement
+  const safeRedirect = (url) => {
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.click();
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <Box sx={{ marginTop: '90px', display: 'flex', alignItems: 'center' }}>
+    <div className="xss-container">
+      <form onSubmit={handleSubmit}>
         <TextField
           id="xss-input"
           label="Ingresa tu script XSS"
@@ -56,7 +70,7 @@ const XSSExample = () => {
         <Button type="submit" variant="contained" color="primary" sx={{ height: '100%' }}>
           Probar XSS
         </Button>
-      </Box>
+      </form>
       <Box sx={{ marginTop: '20px' }}>
         <Typography variant="body1" gutterBottom>
           Resultado del XSS:
@@ -64,12 +78,12 @@ const XSSExample = () => {
         {/* Utilizamos dangerouslySetInnerHTML para renderizar el HTML */}
         <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: outputValue }} />
       </Box>
-      <Box sx={{ marginTop: '20px' }}>
+      <Box className="button-container">
         <Button variant="contained" color="secondary" onClick={handleBack}>
           Back
         </Button>
       </Box>
-    </form>
+    </div>
   );
 };
 
