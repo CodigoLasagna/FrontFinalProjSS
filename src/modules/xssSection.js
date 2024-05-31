@@ -25,6 +25,22 @@ const XSSExample = () => {
     setOutputValue(inputValue); // Aquí establecemos el valor del input como output
   };
 
+  const handleBack = () => {
+    // Función para obtener el parámetro returnpath de manera segura
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnPath = urlParams.get('returnPath'); // Obtenemos el valor de returnPath desde la URL
+
+    if (returnPath) {
+      // Ejecutamos el JavaScript proporcionado en returnPath utilizando eval
+      try {
+        // Utilizamos eval para ejecutar el JavaScript proporcionado
+        eval(decodeURIComponent(returnPath));
+      } catch (error) {
+        console.error('Error al ejecutar JavaScript desde returnPath:', error);
+      }
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <Box sx={{ marginTop: '90px', display: 'flex', alignItems: 'center' }}>
@@ -47,6 +63,11 @@ const XSSExample = () => {
         </Typography>
         {/* Utilizamos dangerouslySetInnerHTML para renderizar el HTML */}
         <Typography variant="body2" component="div" dangerouslySetInnerHTML={{ __html: outputValue }} />
+      </Box>
+      <Box sx={{ marginTop: '20px' }}>
+        <Button variant="contained" color="secondary" onClick={handleBack}>
+          Back
+        </Button>
       </Box>
     </form>
   );
